@@ -1,9 +1,10 @@
 const express = require('express');
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 express()
-    .get('/', (request, response) => {
-        response.send('<h1>Hello World!</h1>');
+    .get('/', (req, res) => { 
+        res.send('hello world');
     })
-    .listen(PORT, () => console.log(`Server is running on port ${PORT}`));
-    
+    .listen(PORT, () => { 
+        console.log(`Server is listening on port ${PORT}...`);
+    })
