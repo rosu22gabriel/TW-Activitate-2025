@@ -8,21 +8,28 @@
                 item.textContent = message;
                 list.appendChild(item);
             };
+            // la incarcarea paginii se creeaza un WebSocket si
+            // se inregistreaza un callback pentru a adauga in lista mesajul
+            // primit
             const socket = new WebSocket(window.location.origin.replace(/^http/, 'ws'));
             socket.onmessage = event => handleMessage(event.data);
-            document.querySelector('input').onkeyup = event => { 
+            // se ataseaza un callback pentru evenimentul de keyUp al
+            // input-ului ca textul scris sa fie trimis pe WebSocket
+            // dupa apasarea si ridicarea tastei Enter
+            document.querySelector('input').onkeyup(event => {
                 if (event.key === 'Enter'
                     && event.target.value.trim().length > 0) {
                         socket.send(event.target.value.trim());
                         event.target.value = '';
                     }
-            }
+            });
         </script>
     </head>
     <body>
         <div>
+            <!--Interfata include un input pentru a compune mesajele si o lista pentru a le afisa pe cele primite-->
             <span>Message</span>
-            <input>
+            <input id="text" placeholder="enter"/>
         </div>
         <div>
             <span>Messages:</span>
