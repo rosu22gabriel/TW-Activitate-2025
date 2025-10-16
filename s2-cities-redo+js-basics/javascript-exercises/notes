@@ -1,0 +1,97 @@
+1.JavaScript
+-Limbaj multi-paradigma
+    -Imperativ: metode apelate direct;
+    -Functional: expresii lambda;
+    -Initial doar bazat pe obiecte; object based programming 
+    -A evoluat in orientat pe obiecte; object oriented programming
+            // -Amandoua tipurile: object based programming si object oriented 
+            programming folosesc obiecte pentru structurarea codului dar
+            POO contine/include featureruri precum incapsulare, mostenire,
+            si polimorfism refolosirea, scalabilitatea codului, feateruri pe care limbajele bazate pe obiecte nu le includ //
+        
+-Fundamental asincron
+    -sincroneitatea reprezinta executia independenta a task-urilor fara ca aceasta sa
+    blocheze thread-ul principal de executie
+
+-Case-sensitive
+-Foloseste setul de caracter Unicode
+-Limbaj interpretat
+    -un limbaj de programare interpretat este un limbaj de programare care
+    este executat de un program numit interpretor fara ca acesta sa fie
+    tradus in machine code de un compilator mai intai
+
+-Cu tipuri dinamice, determinabile si modificabile la runtime
+-Initial client-side, dar au aparut si variante server-side
+
+
+2.CLIENT-SIDE JavaScript si SERVER-SIDE JavaScript
+
+-Client-side JavaScript extinde limbajul cu obiecte specifice browserului
+-Server-side JavaScript extinde limbajul cu obiecte specifice serverului
+-Amandoua sunt construite pe un model asincron 
+
+3.DOMENII DE VIZIBILITATE
+
+-3 domenii de vizibilitate
+    -global
+    -functie
+    -block
+
+-Legatura intre domenii si rezolvarea conflictelor de nume
+-Numele interne au prioritate
+-Daca au nume nu este gasit intr-un anumit domeniu, va fi cautat in domeniile care il contin
+
+4.DECLARAREA VARIABILELOR
+-var - permite declararea unei variabile cu vizibilitate in functie
+-let - permite declararea unei variabile cu vizibilitate in bloc
+
+-fara let si var, variabilele sunt declarate global
+
+5.DECLARAREA CONSTANTELOR
+-const - permite declararea unei constante
+
+
+6.TIPURI DE DATE
+-In principiu un limbaj pur obiectual (exista tipuri primitive, dar sunt impachetate in obiecte);
+
+-String, Number, BigInt si Boolean impacheteaza tipuri primitive;
+
+-Array, Set, Map, Object, Date, RegExp, Function si Symbol sunt tipuri complexe;
+
+-Tipuri speciale: Null si Undefined;
+
+7.OPERATORUL TYPEOF
+-Returneaza tipul argumentelor ca sir de caractere
+
+8.TIPURI PRIMITIVE
+-String
+-Number
+-BigInt
+-Boolean
+
+9-NUMBER SI BIGINT
+-Toate numerele sunt in virgula mobila
+-Numerele sunt boxed in obiecte Number
+-Se pot scrie cu sau fara zecimale
+
+10-BOOLEAN
+-Poate avea doar valorile true si false
+-Valori de adevar true si false: 
+    -Sunt false:
+        -false
+        -String-ul vid
+        -Numerele 0 si -0
+        -undefined
+        -null
+        -NaN
+    -Restul valorilor sunt true
+
+11-TIPURI COMPLEXE
+-Array
+-Set
+-Map
+-Object
+-Date
+-RegExp
+-Function
+-Symbol

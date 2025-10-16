@@ -1,0 +1,10 @@
+console.log(typeof(42));
+console.log(typeof(Nan));
+console.log(typeof('Hello World!')); 
+console.log(typeof(true));
+console.log(typeof(undeclaredVariable));
+console.log(typeof(function f() {}));
+console.log(typeof(f = () => {}));
+console.log(typeof({}));
+console.log(typeof([]));
+console.log(typeof(null));
