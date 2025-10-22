@@ -40,4 +40,21 @@ let d = [a, b];
 console.log(d);
 
 
+// spread operator: despachetarea obiectelor
+let person = {firstName: "Gabriel", lastName: "Rosu"};
+let location = {city: 'Bucharest', country: "Romania"};
+let personWithLocation = {...person, ...location};
+
+let car = {brand: "Volkswagen", model: "Touran 2004"};
+let engine = {cc: "1916", engine: "diesel"};
+let carWithEngine = {...car, ...engine};
+
+
+console.log(carWithEngine);
+console.log(personWithLocation);
+
+// destructurarea: unui array sau a unui obiect: 
+
+let {city} = personWithLocation;
+
 
