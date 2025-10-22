@@ -95,3 +95,9 @@
 -RegExp
 -Function
 -Symbol
+
+12-Array
+-Array-urile sunt indexate de la 0 si reprezinta o lista de obiecte
+
+13-Set
+-Un set este o lista de obiecte cu valori unice
