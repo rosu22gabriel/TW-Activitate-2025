@@ -1,38 +1,37 @@
-// top-level object
 const cache = {};
 
-window.onload = async function ()  {
+window.onload = async function() { 
     const response = await fetch('/cities.json');
-    cache.cities = await response.json();
-    cache.districts = cache.cities.reduce((districts, city) => { 
-        const district = districts.find(item => item.name === city.district);
-        if (district) { 
-            district.inhabitants += city.inhabitants;
-        }
-        else {
-            districts.push({
-                name: city.district,
-                inhabitants: city.inhabitants
-            })
-        }
-    }, []);
-    // top-level object on client
-    const selectElement = document.getElementsByTagName('select')[0];
-    selectElement.innerHTML +=
-        cache.districts.sort((first, second) => 
-            first.name < second.name ? -1 : first.name > second.name ? 1 : 0)
-        .map(district => `<option>${district.name}</option>`)
-        .join('');
-    selectElement.onchange = loadDistrict;
-};
+    if (response === 200) { 
+        cache.cities = await response.json();
+        cache.districts = cache.cities.reduce((districts, city) => { 
+            const district = districts.find(item => item.name === city.districts);
+            if (district) {
+                district.inhabitants += city.inhabitants;
+            } else {
+                districts.push({name: city.district, inhabitants: city.inhabitants});
+            }
+            return districts;
+        }, []);
+        const districtElements = document.getElementsByTagName('select')[0];
+        districtsElements.innerHTML += 
+            cache.districts
+                .sort((first, second) => first.name < second.name ? - 1
+                    : (first.name > second.name ? 1 : 0))
+                .map(district => `<option>${district.name}</option>`)
+                .join('');
+        districtsElements.onchange = loadDistrict;
+    }
+}
 
-function loadDistrict()  {
-    const tableElement = document.getElementsByTagName('select')[0];
-    tableElement.innerHTML = '';
+
+function loadDistrict() {
+    const citiesElement = document.getElementsByTagName('table')[0];
+    citiesElement.innerHTML = '';
     const name = this.value;
     const district = cache.districts.find(item => item.name === name);
-    if (district) { 
-        tableElement.innerHTML = 
+    if (district) {
+        citiesElement.innerHTML =
             `
                 <tr>
                     <td colspan="2">Inhabitants: ${district.inhabitants}</td>
@@ -42,13 +41,17 @@ function loadDistrict()  {
                     <td align="right"><b>Inhabitants</b></td>
                 </tr>
             `
-        + cache.cities.filter(city => city.district === district.name)
-            .map(city => 
-                    `<tr>
-                        <td>${city.name}</td>
-                        <td>${city.inhabitants}</td>
-                    </tr>`
-            )
-            .join('');
+            + cache.cities.filter(city => city.district === district.name)
+                .sort((first, second) => first.name < second.name ? -1:
+                    (first.name > second.name ? 1 : 0))
+                .map(city =>
+                    `
+                        <tr>
+                            <td>${city.name}</td>
+                            <td align="right">${city.inhabitants}</td>
+                        </tr>
+                    `
+                )
+                .join('');
     }
 }
