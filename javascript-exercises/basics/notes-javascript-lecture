@@ -101,3 +101,48 @@
 
 13-Set
 -Un set este o lista de obiecte cu valori unice
+
+Mai departe in curs - Evenimente
+-Atat server-side cat si client-side JavaScript au un model de evenimente
+-In centrul sistemului se afla o coada de evenimente;
+-Evenimentele produse sunt adaugate la coada;
+-Evenimentele sunt apoi scoase din coada si functiile care le trateaza
+-sunt executate atunci cand exista resurse suficiente;
+-Executia unei functii care trateaza un eveniment nu poate fi intrerupta
+
+Mai departe in curs - Mecanisme de propagare a evenimentelor in DOM
+-Evenimentele DOM descriu trei faze ale propagarii evenimentelor:
+    -Faza Capturing:
+        -Evenimentul coboara la element.
+    -Faza Target: 
+        -Evenimentul a atins elementul tinta.
+    -Faza Bubbling:
+        -Evenimentul se ridica din element in element
+
+-Fiecare handler poate accesa proprietatile obiectului eveniment
+    -event.target - elementul care a generat evenimentul;
+    -event.currentTarget (=this) - elementul curent care gestioneaza
+                                    evenimentul(cel care are handler-ul
+                                    pe el)
+    -event.eventPhase - faza curenta;
+        -Capture = 1;
+        -Target = 2;
+        -Bubble = 3;
+
+-Orice element poate opri evenimentul apeland event.stopPropagation(),
+dar acest lucru nu este recomandat, deoarce nu putem fi siguri ca nu vom
+avea nevoie de el mai sus, poate pentru lucruri complet diferite;
+
+-Tratamentul implicit pentru eveniment poate fi evitat prin apelul
+event.preventDefault()
+
+-Capturing
+    -Evenimentul trece mai intai prin lantul stramosilor pana la 
+    elementul care l-a declansat
+    1. HTML->BODY->FORM->DIV;
+    2. P;
+    3. DIV->FORM->BODY->HTML;
+
+-Bubbling
+    -Cand ajunge un eveniment care l-a declansat, acesta executa mai intai
+    handler-urile pe el, apoi pe parintele sau, apoi pe tot parcursul altor stramosi
