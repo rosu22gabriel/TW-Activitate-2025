@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Predict Your Nationality</title>
+        <link rel="stylesheet"/>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <!--Macheta HTML ne permite sa tastam numele apasand Enter pentru a vedea
+            lista tarilor care apare mai frecvent-->
+        <p>
+            Name <input onkeyup="searchName(event)"/>
+        </p>
+        <p>
+            <input type="radio" name="implementation" value="AsyncAwait" checked>Async/Await<br/>
+            <input type="radio" name="implementation" value="Promise">Promise
+        </p>
+        <!--Serviciu de pe server poate fi apelat folosind async/await sau promise-->
+        <p id="results"></p>
+    </body>
+</html>
