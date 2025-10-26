@@ -1,0 +1,37 @@
+-Functiile sunt in orice limbaj o modalitate de reutilizare a codului
+-Functii in limbaje cu tipuri dinamice:
+    -Nu specifica tipul parametrilor(determinat la runtime);
+    -Nu specifica tipul rezultatului(se pot returna rezultate diferite
+    pe ramuri de executie diferite);
+    -Liste de parametri de lungime variabila;
+    -Pot fi apelate cu acelasi numar de argumente ca cel de parametri,
+    dar si cu mai putine sau mai multe argumente.
+
+
+Functii ca valori returnate
+
+-Functiile se pot returna din alte functii;
+-Spre deosebire de modelul clasic(C), ceea ce se returneaza nu este un 
+pointer la o functie;
+-Functiile returnate trebuie sa fie concrete, deci se returneaza cu 
+variabilele la care au acces in momentul crearii;
+-In alte limbaje, variabilele locale exista atat timp cat exista functia
+declaratoare, in JavaScript, atat timp cat sunt necesare;
+-Se spune ca functia este inchisa asupra contextului ei de creare;
+-Functia isi aminteste deci valorile variabilelor accesibile in momentul 
+crearii
+
+
+Eval si functii ca text
+
+// JavaScript poate executa text arbitrar prin intermediul functiei eval;
+
+eval('a = 1, b = 2; console.log(a + b)'); // 3
+
+// Textul trebuie sa fie o primitiva string;
+
+// Mecanismul presupune crearea unei functii anonime in jurul textului
+// textului executabil;
+
+// Functii setInterval si setTimeout folosesc evaluarea expresiei pe care
+// sa o execute
