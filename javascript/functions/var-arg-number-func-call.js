@@ -10,3 +10,12 @@ function format(text, ...args) {
 
 console.log(format("Hello, {0}!", "World"));
 // Hello, World!
+
+// Parametri pot avea valori implicite: 
+
+function add(a = 1, b = 2) {
+    return a + b;
+}
+
+// In absenta argumentelor, se folosesc valorile implicite
+console.log(add()); 
