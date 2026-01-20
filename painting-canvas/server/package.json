@@ -1,0 +1,16 @@
+{
+  "name": "paint",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "fs": "~0.0.1-security"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "nodemonConfig": {
+    "ignore": ["repository.json"]
+  }
+}
