@@ -1,0 +1,71 @@
+<form action="javascript:void(0)" onsubmit="processForm(this)">
+	<input type="hidden" name="id" value="${id}"/>
+	<div class="row">
+		<div class="col-20">
+			<label for="lastName">Nume</label>
+		</div>
+		<div class="col-80">
+			<input type="text" name="lastName" value="${lastName}" required/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-20">
+			<label for="firstName">Prenume</label>
+		</div>
+		<div class="col-80">
+			<input type="text" name="firstName" value="${firstName}" required/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-20">
+			<label for="bornDate">Data nasterii</label>
+		</div>
+		<div class="col-80">
+			<input type="date" name="bornDate" value="${bornDate}"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-20">
+			<label for="email">E-mail</label>
+		</div>
+		<div class="col-80">
+			<input type="email" name="email" value="${email}" required/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-20">
+			<label for="email">Telefon</label>
+		</div>
+		<div class="col-80">
+			<input type="tel" name="phone" value="${phone}"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-20">
+			<label for="section">Specializarea</label>
+		</div>
+		<div class="col-80">
+			<select name="section" required>
+				<option value="IE" %{'${section}' === 'IE' ? 'selected' : ''}>Informatica</option>
+				<option value="CE" %{'${section}' === 'CE' ? 'selected' : ''}>Cibernetica</option>
+				<option value="SE" %{'${section}' === 'SE' ? 'selected' : ''}>Statistica</option>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-20">
+			<label for="group">Grupa</label>
+		</div>
+		<div class="col-80">
+			<input type="number" name="group" value="${group}" required/>
+		</div>
+	</div>
+	<br/>		
+	<div class="row">
+		<input type="button" value="Renunta" onclick="goTo('home')">
+		?{existing}
+		<input type="button" value="Sterge" onclick="goTo('remove/${id}')">
+		?{/existing}
+		<input type="submit" value="Salveaza">
+	</div>
+</form>
